@@ -1,0 +1,58 @@
+name: Deploy Web to Production
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ./AutoAWS.Web/**,
+      - ./.github/workflows/publish-web
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./AutoAWS.Web
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.14.0
+
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+          dir: ./AutoAWS.Web
+
+      - name: Run Clean
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: clean
+          dir: ./AutoAWS.Web
+
+      - name: Run Build
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
+          dir: ./AutoAWS.Web
+
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./AutoAWS.Web/public/
+          server-dir: ./www/

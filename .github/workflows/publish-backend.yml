@@ -1,0 +1,71 @@
+name: Deploy Backend to Production
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ./AutoAWS.Api/**,
+      - ./AutoAWS.Core/**,
+      - ./AutoAWS.Core.Domain/**,
+      - ./AutoAWS.Infrastructure.AutocarisImport/**,
+      - ./AutoAWS.Infrastructure.EmailSender/**,
+      - ./AutoAWS.Infrastructure.Github/**,
+      - ./AutoAWS.Infrastructure.Storage/**,
+      - ./.github/workflows/publish-backend
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # This workflow contains a single job called "build"
+  
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    env:
+      CI: false
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Publish
+        run: dotnet publish ./AutoAWS.API/AutoAWS.API.csproj -c RELEASE  -o ./publish
+
+      - name: Stop IIS Application
+        shell: python
+        run: |
+          import ftplib
+          ftp = ftplib.FTP('${{ secrets.FTP_SERVER }}')
+          ftp.login('${{ secrets.FTP_USERNAME }}', '${{ secrets.FTP_PASSWORD }}')
+          ftp.rename('/subdoms/backend/web.config', '/subdoms/backend/_stop_web.config')
+          ftp.quit()
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./publish/
+          server-dir: ./subdoms/backend/
+          exclude: |
+            **/web.config 
+            **/appsettings.development.json
+
+      - name: Start IIS Application
+        shell: python
+        run: |
+          import ftplib
+          ftp = ftplib.FTP('${{ secrets.FTP_SERVER }}')
+          ftp.login('${{ secrets.FTP_USERNAME }}', '${{ secrets.FTP_PASSWORD }}')
+          ftp.rename('/subdoms/backend/_stop_web.config', '/subdoms/backend/web.config')
+          ftp.quit()
