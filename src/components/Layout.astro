@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  imageUrl?: string;
+}
+
+import Head from "./organisms/Head.astro";
+---
+
+<html lang="cs">
+  <Head {...Astro.props} />
+  <body>
+    <header></header>
+    <main class="overflow-x-hidden">
+      <slot />
+    </main>
+    <footer></footer>
+  </body>
+</html>
