@@ -4,7 +4,7 @@
 
 I use this template as a starting point for each project, when a project gets finished i try to update this tempalte to reflect new findings and also upgrade packages.
 
-Feel fre to reuse and give a start if you like it.
+Feel fre to reuse and give a star if you like it.
 
 This template uses [TailwindCSS](https://tailwindcss.com/) for styling.
 
