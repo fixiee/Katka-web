@@ -33,5 +33,5 @@ Most of the websites thave some common functionality, this template tries to sol
 
 ## References
 
-https://kremalicious.com/favicon-generation-with-astro/
+https://kremalicious.com/favicon-generation-with-astro/  
 https://docs.astro.build/en/guides/images/#generating-images-with-getimage
