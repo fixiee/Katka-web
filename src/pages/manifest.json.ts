@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { getImage } from "astro:assets";
 import favicon from "../images/favicon.png";
+import { settings } from "../../website";
 
 const faviconPngSizes = [192, 512];
 
@@ -22,11 +23,11 @@ export const GET: APIRoute = async () => {
   );
 
   const manifest = {
-    name: "TODO",
-    description: "TODO",
+    name: settings.title,
+    description: settings.description,
     start_url: "/",
     display: "standalone",
-    id: "TODO",
+    id: settings.id,
     icons,
   };
 

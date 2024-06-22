@@ -1,4 +1,15 @@
 {
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.associations": {
+    ".prettierrc": "yaml"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ],
   "editor.codeActionsOnSave": ["source.organizeImports", "source.fixAll.eslint"],
   "editor.formatOnSave": true,
   "[typescript]": {
@@ -6,5 +17,10 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.documentSelectors": ["**/*.astro"],
+  "prettier.printWidth": 120,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
   }
 }
