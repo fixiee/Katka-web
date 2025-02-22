@@ -20,8 +20,20 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site output
-        uses: withastro/action@v2
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.17.0
+      - name: Install
+        shell: "bash"
+        run: npm install --include=optional sharp
+      - name: Build
+        shell: "bash"
+        run: npm run build
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "/dist/"
 
   deploy:
     needs: build
