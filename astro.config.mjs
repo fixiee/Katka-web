@@ -1,5 +1,4 @@
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
 import robotsTxt from "astro-robots-txt";
@@ -7,6 +6,8 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: "https://tomas-juri.github.io/",
+  copyrightStart: 2024,
   base: "Astro-Starter",
-  integrations: [tailwind(), sitemap(), robotsTxt()],
+  vite: { plugins: [tailwindcss()] },
+  integrations: [sitemap(), robotsTxt()],
 });
