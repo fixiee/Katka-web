@@ -8,6 +8,6 @@ export default defineConfig({
   site: "https://tomas-juri.github.io/",
   copyrightStart: 2024,
   base: "Astro-Starter",
-  vite: { plugins: [tailwindcss()] },
+  vite: {    plugins: [tailwindcss()],  },
   integrations: [sitemap(), robotsTxt()],
 });
