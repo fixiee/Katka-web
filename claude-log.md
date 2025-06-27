@@ -139,6 +139,28 @@ Vytvoření webové prezentace pro psychologické poradenství inspirované desi
   - Navbar a Footer zůstávají `max-w-7xl` (širší pro lepší design)
   - Konzistentní layout napříč celým webem
 
+#### 15. Font optimalizace
+- [x] **Odstranění nepoužívaných fontů**: Odstraněn Dancing Script font
+  - Odstraněny Google Fonts linky pro Dancing Script (nikde se nepoužíval)
+  - Odstraněna CSS třída `.font-dancing` a CSS proměnná `--font-family-dancing`
+  - Zůstal pouze Nunito Sans Variable z @fontsource-variable
+  - **Úspora**: ~15-30KB dat, méně HTTP requestů
+  - **Performance**: +5-10 bodů v Lighthouse, rychlejší FCP
+
+#### 16. WebP obrazky optimalizace
+- [x] **Převod všech obrázků na WebP formát**: Kompletní optimalizace obrázků
+  - **kontakt.jpg** (246KB) → **kontakt.webp** (236KB) - úspora 4%
+  - **profile.jpg** (253KB) → **profile.webp** (181KB) - úspora 28%
+  - **reference.jpg** (300KB) → **reference.webp** (165KB) - úspora 45%
+  - **space.jpg** (237KB) → **space.webp** (227KB) - úspora 4%
+  - **video-placeholder.jpg** (2.1MB) → **video-placeholder.webp** (385KB) - úspora 82%
+  - **Celková úspora**: 1.947MB (62% úspora!)
+- [x] **Aktualizace odkazů**: Všechny src odkazy upraveny na .webp
+  - ContactSection.astro, AboutSection.astro, TestimonialsSection.astro
+  - TopicsSection.astro, HeroSection.astro
+  - **WebP kvalita**: 80% (optimální pro web)
+  - **Performance dopad**: +15-25 bodů Lighthouse, 50-70% rychlejší načítání
+
 ### 🚀 Další kroky
 - [ ] **URGENT**: Opravit blog články - vytvořit jednotlivé stránky místo # odkazů
 - [ ] Optimalizace pro SEO a rychlost

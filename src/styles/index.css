@@ -10,9 +10,4 @@
   --color-neutral-light: #f7f9f9;
   
   --font-family-nunito: "Nunito Sans Variable", sans-serif;
-  --font-family-dancing: "Dancing Script", cursive;
-}
-
-.font-dancing {
-  font-family: "Dancing Script", cursive;
 }
