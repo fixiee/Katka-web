@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource-variable/nunito-sans";
 
 @theme {
   --color-primary: #25928c;
@@ -8,7 +9,7 @@
   --color-accent-soft-pink: #f2c6ba;
   --color-neutral-light: #f7f9f9;
   
-  --font-family-sanchez: Sanchez, serif;
+  --font-family-nunito: "Nunito Sans Variable", sans-serif;
   --font-family-dancing: "Dancing Script", cursive;
 }
 

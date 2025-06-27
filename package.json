@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/sitemap": "^3.3.1",
+    "@fontsource-variable/nunito-sans": "^5.2.6",
     "@tailwindcss/vite": "^4.1.5",
     "astro": "^5.7.10",
     "astro-robots-txt": "^1.0.0",

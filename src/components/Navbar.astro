@@ -5,7 +5,6 @@ const navItems = [
   { name: "Nabídka & Ceník", href: "#nabidka" },
   { name: "Témata", href: "#temata" },
   { name: "Reference", href: "#reference" },
-  { name: "Blog", href: "/blog" },
   { name: "Kontakt", href: "#kontakt" },
 ];
 
@@ -13,7 +12,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav class="bg-primary/95 border-primary-dark fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-sm">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 justify-between">
       <div class="flex items-center">
         <a href="/" class="block">
@@ -92,7 +91,7 @@ const currentPath = Astro.url.pathname;
           const targetElement = document.getElementById(targetId);
 
           if (targetElement) {
-            const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
+            const offsetTop = targetElement.offsetTop - 64; // Account for fixed navbar
             window.scrollTo({
               top: offsetTop,
               behavior: "smooth",
