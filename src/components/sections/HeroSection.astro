@@ -1,0 +1,86 @@
+---
+// Hero Section Component
+---
+
+<section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+  <!-- Video Background with Placeholder -->
+  <video 
+    id="hero-video"
+    muted 
+    loop 
+    playsinline 
+    preload="none"
+    poster="/video-placeholder.jpg"
+    class="absolute inset-0 w-full h-full object-cover z-0 opacity-0"
+    style="transition: opacity 0.8s ease-in-out;"
+  >
+    <source src="/IntroVideo.mp4" type="video/mp4">
+  </video>
+  
+  <!-- Fallback Background -->
+  <div id="fallback-bg" class="absolute inset-0 bg-gradient-to-br from-primary/80 to-accent-coral/60 z-0"></div>
+  
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/40 z-10"></div>
+  
+  <!-- Content -->
+  <div class="relative z-20 text-center text-white px-4 max-w-6xl mx-auto">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      Prostor, kde se můžete<br>
+      <span class="text-accent-coral">potkat sami se sebou</span>
+    </h1>
+    <p class="text-xl md:text-2xl mb-8 opacity-90 leading-relaxed">
+      a najít svou pravdu
+    </p>
+    <div class="text-right">
+      <p class="text-lg md:text-xl italic">
+        Kapku jinak<br>
+        <span class="text-sm font-normal">Kateřina Urbanová</span>
+      </p>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+    <div class="animate-bounce">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smart video loading
+  document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('hero-video') as HTMLVideoElement;
+    const fallbackBg = document.getElementById('fallback-bg');
+    
+    // Check connection speed and device capabilities
+    const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
+    const slowConnection = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Only load video on good conditions
+    if (!slowConnection && !prefersReducedMotion && video) {
+      // Start loading video after 1 second delay
+      setTimeout(() => {
+        video.load();
+        
+        video.addEventListener('canplaythrough', () => {
+          video.play().then(() => {
+            video.style.opacity = '1';
+            if (fallbackBg) fallbackBg.style.opacity = '0';
+          }).catch(() => {
+            // Autoplay failed, keep fallback
+            console.log('Video autoplay failed, using fallback background');
+          });
+        });
+        
+        video.addEventListener('error', () => {
+          console.log('Video failed to load, using fallback background');
+        });
+      }, 1000);
+    }
+  });
+</script>

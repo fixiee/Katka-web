@@ -43,6 +43,11 @@ const socialImageURL = new URL(metaImage.src, Astro.url);
   <meta name="copyright" content={`${author} ${copyrightStart} - ${new Date().getFullYear()}`} />
   <meta name="author" content={author} />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sanchez:ital,wght@0,400;1,400&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
@@ -50,8 +55,8 @@ const socialImageURL = new URL(metaImage.src, Astro.url);
   <link rel="manifest" href="/manifest.json" />
 
   <!-- Theme -->
-  <meta name="msapplication-TileColor" content="TODO" />
-  <meta name="theme-color" content="TODO" />
+  <meta name="msapplication-TileColor" content="#25928c" />
+  <meta name="theme-color" content="#25928c" />
 
   <!-- Sitemap & Canonical -->
   <link rel="canonical" href={canonicalURL} data-baseprotocol="https:" />

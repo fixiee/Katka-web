@@ -1,0 +1,110 @@
+---
+const navItems = [
+  { name: "Úvod", href: "#hero" },
+  { name: "O mně", href: "#o-mne" },
+  { name: "Nabídka & Ceník", href: "#nabidka" },
+  { name: "Témata", href: "#temata" },
+  { name: "Reference", href: "#reference" },
+  { name: "Blog", href: "/blog" },
+  { name: "Kontakt", href: "#kontakt" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="bg-primary/95 border-primary-dark fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-sm">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 justify-between">
+      <div class="flex items-center">
+        <a href="/" class="block">
+          <img src="/logo.svg" alt="Kapku jinak - Kateřina Urbanová" class="h-12 w-auto" />
+        </a>
+      </div>
+
+      <div class="hidden items-center space-x-8 md:flex">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class={`transition-colors duration-200 hover:text-white ${
+                currentPath === item.href ? "font-semibold text-white" : "text-white/80"
+              }`}
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex items-center md:hidden">
+        <button
+          id="mobile-menu-button"
+          class="text-white/80 hover:text-white focus:ring-2 focus:ring-white focus:outline-none"
+          aria-label="Otevřít menu"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="bg-primary border-primary-dark hidden border-t md:hidden">
+    <div class="space-y-1 px-2 pt-2 pb-3">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`block px-3 py-2 text-base transition-colors duration-200 hover:text-white ${
+              currentPath === item.href ? "font-semibold text-white" : "text-white/80"
+            }`}
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  mobileMenuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
+
+  // Smooth scrolling for anchor links
+  document.addEventListener('DOMContentLoaded', function() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    anchorLinks.forEach(link => {
+      link.addEventListener('click', function(e: Event) {
+        const target = e.target as HTMLAnchorElement;
+        const href = target.getAttribute('href');
+        if (href !== '#' && href && href.startsWith('#')) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+            }
+          }
+        }
+      });
+    });
+  });
+</script>

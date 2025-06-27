@@ -1,0 +1,107 @@
+---
+// Topics Section Component
+---
+
+<section id="temata" class="py-20" style="background-color: rgba(255, 255, 255, 0.95);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-8">Když přijde ten okamžik...</h2>
+      <div class="max-w-4xl mx-auto mb-8">
+        <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+          Když vám dojde, že už nemáte sílu před sebou utíkat. I když je to občas k nesnesení. 
+          Pomůžu vám ukončit vnitřní boje a získat sami sebe na svou stranu.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          Vypátráme skryté souvislosti, zamotaté do nepřehledných chomáčů minulosti, 
+          které zatím nikdo nespojil. Zatáhneme za tu správnou nitku – aby mohlo přijít pochopení, 
+          úleva a klid a s nimi konečně i prostor pro radost.
+        </p>
+      </div>
+      <!-- Atmosférický obrázek -->
+      <div class="relative w-full max-w-4xl mx-auto group cursor-pointer mb-12">
+        <img 
+          src="/space.jpg" 
+          alt="Témata psychologického poradenství" 
+          class="w-full h-48 object-cover rounded-2xl shadow-lg transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-1 group-hover:scale-[1.02]"
+        >
+        <div class="absolute -top-2 -right-2 w-8 h-8 bg-accent-coral/30 rounded-full transition-all duration-500 group-hover:bg-accent-coral/50 group-hover:scale-125"></div>
+      </div>
+      <h3 class="text-2xl font-bold text-primary mb-8">S čím pracujeme</h3>
+      <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+        Témata a oblasti, které společně prozkoumáme
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="text-center group">
+        <div class="w-20 h-20 mx-auto mb-4 text-primary group-hover:text-accent-coral transition-colors duration-300">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+            <path d="M12 2C8.7 2 6 4.7 6 8C6 11.3 8.7 14 12 14S18 11.3 18 8C18 4.7 15.3 2 12 2M12 4C14.2 4 16 5.8 16 8S14.2 12 12 12 8 10.2 8 8 9.8 4 12 4M12 16C15.3 16 18 18.7 18 22H6C6 18.7 8.7 16 12 16M4 6L2 4L3.4 2.6L5.4 4.6L8.8 1.2L10.2 2.6L4 6M20 6L13.8 2.6L15.2 1.2L18.6 4.6L20.6 2.6L22 4L20 6Z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-primary mb-2">Opakující se vzorce</h3>
+        <p class="text-gray-600">Rozpoznání a změna neužitečných životních vzorců</p>
+      </div>
+      
+      <div class="text-center group">
+        <div class="w-20 h-20 mx-auto mb-4 text-primary group-hover:text-accent-coral transition-colors duration-300">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+            <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35ZM7.5 5C5.56 5 4 6.56 4 8.5C4 11.39 6.64 13.83 11.06 17.73L12 18.54L12.94 17.73C17.36 13.83 20 11.39 20 8.5C20 6.56 18.44 5 16.5 5C15.04 5 13.65 5.69 12.94 6.74H11.06C10.35 5.69 8.96 5 7.5 5Z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-primary mb-2">Vztahy</h3>
+        <p class="text-gray-600">Partnerské, rodinné i pracovní vztahy</p>
+      </div>
+      
+      <div class="text-center group">
+        <div class="w-20 h-20 mx-auto mb-4 text-primary group-hover:text-accent-coral transition-colors duration-300">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M12 8C14.7 8 17 10.3 17 13V16H15V13C15 11.3 13.7 10 12 10S9 11.3 9 13V16H7V13C7 10.3 9.3 8 12 8M9 18C8.4 18 8 18.4 8 19S8.4 20 9 20 10 19.6 10 19 9.6 18 9 18M15 18C14.4 18 14 18.4 14 19S14.4 20 15 20 16 19.6 16 19 15.6 18 15 18M12 18C11.4 18 11 18.4 11 19S11.4 20 12 20 13 19.6 13 19 12.6 18 12 18M9 21C8.4 21 8 21.4 8 22S8.4 23 9 23 10 22.6 10 22 9.6 21 9 21M15 21C14.4 21 14 21.4 14 22S14.4 23 15 23 16 22.6 16 22 15.6 21 15 21M12 21C11.4 21 11 21.4 11 22S11.4 23 12 23 13 22.6 13 22 12.6 21 12 21Z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-primary mb-2">Sebepoznání</h3>
+        <p class="text-gray-600">Objevování vlastní identity a hodnot</p>
+      </div>
+      
+      <div class="text-center group">
+        <div class="w-20 h-20 mx-auto mb-4 text-primary group-hover:text-accent-coral transition-colors duration-300">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+            <path d="M12 3L14 8L20 9L15 13L17 20L12 17L7 20L9 13L4 9L10 8L12 3M12 2L9.5 8.5L2 9.5L7.5 14.5L5.5 22L12 18L18.5 22L16.5 14.5L22 9.5L14.5 8.5L12 2M8 12V14H10V16H8V18H10V20H8V22H6V20H4V18H6V16H4V14H6V12H8M18 12V14H16V16H18V18H16V20H18V22H20V20H22V18H20V16H22V14H20V12H18Z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-primary mb-2">Life-work balance</h3>
+        <p class="text-gray-600">Nalezení rovnováhy mezi prací a životem</p>
+      </div>
+      
+      <div class="text-center group">
+        <div class="w-20 h-20 mx-auto mb-4 text-primary group-hover:text-accent-coral transition-colors duration-300">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+            <path d="M12 2L14 8H20L15.5 12L17 18L12 15L7 18L8.5 12L4 8H10L12 2M12 4.8L11 7H8.5L10.2 8.7L9.7 11.2L12 9.9L14.3 11.2L13.8 8.7L15.5 7H13L12 4.8M3 5V7H1V5H3M23 5V7H21V5H23M3 17V19H1V17H3M23 17V19H21V17H23M5.8 7.8L7.2 6.4L5.8 5L4.4 6.4L5.8 7.8M18.2 7.8L19.6 6.4L18.2 5L16.8 6.4L18.2 7.8M5.8 16.2L7.2 17.6L5.8 19L4.4 17.6L5.8 16.2M18.2 16.2L19.6 17.6L18.2 19L16.8 17.6L18.2 16.2Z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-primary mb-2">Životní směr</h3>
+        <p class="text-gray-600">Hledání smyslu a směřování v životě</p>
+      </div>
+      
+      <div class="text-center group">
+        <div class="w-20 h-20 mx-auto mb-4 text-primary group-hover:text-accent-coral transition-colors duration-300">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+            
+            <g stroke="currentColor" stroke-width="1.5" fill="none">
+              <path d="M12 3 L12 21"/>
+              <path d="M3 12 L21 12"/>
+              <path d="M18.36 5.64 L5.64 18.36"/>
+              <path d="M18.36 18.36 L5.64 5.64"/>
+            </g>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-primary mb-2">Vnitřní klid</h3>
+        <p class="text-gray-600">Ukončení vnitřních bojů a nalezení míru</p>
+      </div>
+    </div>
+  </div>
+</section>

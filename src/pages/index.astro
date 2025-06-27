@@ -1,18 +1,19 @@
 ---
-import { getImage } from "astro:assets";
 import Layout from "../components/Layout.astro";
-import backgroundImage from "../images/background.png";
-
-var background = await getImage({ src: backgroundImage });
+import HeroSection from "../components/sections/HeroSection.astro";
+import AboutSection from "../components/sections/AboutSection.astro";
+import ServicesSection from "../components/sections/ServicesSection.astro";
+import TopicsSection from "../components/sections/TopicsSection.astro";
+import TestimonialsSection from "../components/sections/TestimonialsSection.astro";
+import CTASection from "../components/sections/CTASection.astro";
+import ContactSection from "../components/sections/ContactSection.astro";
 ---
 
-<Layout>
-  <div class="relative flex h-screen items-center justify-center overflow-hidden bg-black">
-    <h1 class="relative z-10 text-8xl font-bold text-white">Hello world!</h1>
-    <div
-      class="absolute -inset-1/2 m-auto h-[1969px] w-[2353px] bg-[length:2353px_1969px] blur-3xl"
-      style={{ backgroundImage: `url('${background.src}')` }}
-    >
-    </div>
-  </div>
+<Layout title="Kateřina Urbanová - Prostor pro setkání sami se sebou" description="Psychologické poradenství a terapie. Prostor, kde se můžete potkat sami se sebou a najít cestu k vnitřnímu klidu.">
+  <HeroSection />
+  <AboutSection />
+  <ServicesSection />
+  <TopicsSection />
+  <TestimonialsSection />
+  <ContactSection />
 </Layout>

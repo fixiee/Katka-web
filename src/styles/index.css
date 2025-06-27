@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #25928c;
+  --color-primary-dark: #1a6c68;
+  --color-accent-pink: #fd8e86;
+  --color-accent-coral: #d8654a;
+  --color-accent-soft-pink: #f2c6ba;
+  --color-neutral-light: #f7f9f9;
+  
+  --font-family-sanchez: Sanchez, serif;
+  --font-family-dancing: "Dancing Script", cursive;
+}
+
+.font-dancing {
+  font-family: "Dancing Script", cursive;
+}

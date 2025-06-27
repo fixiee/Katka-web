@@ -7,7 +7,9 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://tomas-juri.github.io/",
   copyrightStart: 2024,
-  base: "Astro-Starter",
-  vite: {    plugins: [tailwindcss()],  },
+  // base: "Astro-Starter", // Odstraněno pro lokální vývoj
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [sitemap(), robotsTxt()],
 });

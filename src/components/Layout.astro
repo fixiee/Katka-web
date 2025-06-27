@@ -7,15 +7,17 @@ interface Props {
 
 import '../styles/index.css';
 import Head from "./organisms/Head.astro";
+import Navbar from "./Navbar.astro";
+import Footer from "./Footer.astro";
 ---
 
 <html lang="cs">
   <Head {...Astro.props} />
-  <body>
-    <header></header>
+  <body class="font-sanchez" style="background-image: url('/pattern.svg'); background-repeat: no-repeat; background-size: cover;">
+    <Navbar />
     <main class="overflow-x-hidden">
       <slot />
     </main>
-    <footer></footer>
+    <Footer />
   </body>
 </html>
